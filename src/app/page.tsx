@@ -1,21 +1,23 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-400 to-purple-500">
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur z-50 shadow flex items-center justify-between px-8 py-4">
-        <a href="/" className="flex items-center font-bold text-xl text-gray-800">
-          <img src="/favicon.ico" alt="Block Breaker Logo" className="w-8 h-8 mr-2" />
+        <Link href="/" className="flex items-center font-bold text-xl text-gray-800">
+          <Image src="/favicon.ico" alt="Block Breaker Logo" width={32} height={32} className="w-8 h-8 mr-2" />
           Block Breaker
-        </a>
+        </Link>
         <ul className="flex gap-8 text-gray-700 font-medium">
-          <li><a href="#features" className="hover:text-green-600">Features</a></li>
-          <li><a href="#how-to-play" className="hover:text-green-600">How to Play</a></li>
-          <li><a href="#tips-tricks" className="hover:text-green-600">Tips & Tricks</a></li>
-          <li><a href="#achievements" className="hover:text-green-600">Achievements</a></li>
+          <li><Link href="#features" className="hover:text-green-600">Features</Link></li>
+          <li><Link href="#how-to-play" className="hover:text-green-600">How to Play</Link></li>
+          <li><Link href="#tips-tricks" className="hover:text-green-600">Tips & Tricks</Link></li>
+          <li><Link href="#achievements" className="hover:text-green-600">Achievements</Link></li>
         </ul>
-        <a href="#game-container" className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">Play Now</a>
+        <Link href="#game-container" className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">Play Now</Link>
       </nav>
 
       {/* Game Container */}
@@ -31,7 +33,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-center py-20">
-        <h1 className="text-5xl font-extrabold mb-4 drop-shadow">Google's Block Breaker</h1>
+        <h1 className="text-5xl font-extrabold mb-4 drop-shadow">Google&apos;s Block Breaker</h1>
         <p className="text-lg max-w-xl mx-auto mb-8 opacity-90">
           The classic brick-breaking arcade game reimagined with stunning visuals, exciting power-ups, and addictive gameplay. Test your skills and reflexes now!
         </p>
@@ -46,7 +48,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4">
           <h1 id="features" className="text-3xl font-bold text-center mb-8">Block Breaker - Brick Breaking Excellence</h1>
           <p className="text-center text-gray-600 mb-8">
-            Welcome to <strong>Block Breaker</strong>, Google's reimagining of the classic brick-breaking arcade experience that's captivating players worldwide. Combining nostalgic gameplay with modern design and addictive challenges, Block Breaker delivers the perfect blend of simplicity and strategic depth that keeps you coming back for "just one more level."
+            Welcome to <strong>Block Breaker</strong>, Google&apos;s reimagining of the classic brick-breaking arcade experience that&apos;s captivating players worldwide. Combining nostalgic gameplay with modern design and addictive challenges, Block Breaker delivers the perfect blend of simplicity and strategic depth that keeps you coming back for &quot;just one more level.&quot;
           </p>
 
           {/* Feature Cards */}
@@ -75,13 +77,13 @@ export default function Home() {
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Move Your Paddle:</strong> Use your mouse, trackpad, or arrow keys to slide the paddle left and right to keep the ball in play.</li>
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Break All Blocks:</strong> Aim the ball to hit and destroy all blocks on the screen to advance to the next level.</li>
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Catch Power-Ups:</strong> Special items will fall from broken blocks - catch them with your paddle to activate their effects!</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Don't Drop the Ball:</strong> If the ball falls below your paddle, you'll lose a life. Game over when all lives are lost.</li>
+              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Don&apos;t Drop the Ball:</strong> If the ball falls below your paddle, you&apos;ll lose a life. Game over when all lives are lost.</li>
             </ul>
           </section>
 
           {/* Tips & Tricks */}
           <section id="tips-tricks" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">Tips & Tricks for Block Breaker Mastery</h2>
+            <h2 className="text-2xl font-bold mb-4">Tips &amp; Tricks for Block Breaker Mastery</h2>
             <ol className="list-decimal ml-6 space-y-2">
               <li><strong>Aim for the Corners:</strong> Hitting blocks at their edges can create unpredictable ball trajectories that clear multiple blocks at once.</li>
               <li><strong>Prioritize Power-Ups:</strong> Some power-ups are more valuable than others - multi-ball and paddle extenders can be game-changers.</li>
@@ -93,7 +95,7 @@ export default function Home() {
 
           {/* Achievements */}
           <section id="achievements" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">Achievements & Challenges</h2>
+            <h2 className="text-2xl font-bold mb-4">Achievements &amp; Challenges</h2>
             <ul className="space-y-3">
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Perfect Clearer:</strong> Complete a level without losing a single ball.</li>
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Speed Demon:</strong> Clear a level in under 30 seconds.</li>
@@ -122,8 +124,8 @@ export default function Home() {
       <section className="cta-section bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-16">
         <div className="max-w-xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to Break Some Blocks?</h2>
-          <p className="mb-6">Join millions of players worldwide enjoying Google's Block Breaker. Challenge yourself, beat your high score, and experience the satisfaction of clearing level after level.</p>
-          <a href="#game-container" className="bg-white text-green-600 px-8 py-3 rounded-full font-bold text-lg shadow hover:bg-gray-100 transition">Play Free Now</a>
+          <p className="mb-6">Join millions of players worldwide enjoying Google&apos;s Block Breaker. Challenge yourself, beat your high score, and experience the satisfaction of clearing level after level.</p>
+          <Link href="#game-container" className="bg-white text-green-600 px-8 py-3 rounded-full font-bold text-lg shadow hover:bg-gray-100 transition">Play Free Now</Link>
         </div>
       </section>
 
@@ -143,11 +145,11 @@ export default function Home() {
           <div>
             <h3 className="text-green-400 font-bold text-lg mb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="hover:text-green-400">Features</a></li>
-              <li><a href="#how-to-play" className="hover:text-green-400">How to Play</a></li>
-              <li><a href="#tips-tricks" className="hover:text-green-400">Tips & Tricks</a></li>
-              <li><a href="#achievements" className="hover:text-green-400">Achievements</a></li>
-              <li><a href="#game-container" className="hover:text-green-400">Play Now</a></li>
+              <li><Link href="#features" className="hover:text-green-400">Features</Link></li>
+              <li><Link href="#how-to-play" className="hover:text-green-400">How to Play</Link></li>
+              <li><Link href="#tips-tricks" className="hover:text-green-400">Tips & Tricks</Link></li>
+              <li><Link href="#achievements" className="hover:text-green-400">Achievements</Link></li>
+              <li><Link href="#game-container" className="hover:text-green-400">Play Now</Link></li>
             </ul>
           </div>
           <div>
@@ -161,7 +163,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center opacity-60 border-t border-gray-700 pt-6">
-          &copy; 2025 Block Breaker. All rights reserved. An unofficial fan site for Google's Block Breaker game.
+          &copy; 2025 Block Breaker. All rights reserved. An unofficial fan site for Google&apos;s Block Breaker game.
         </div>
       </footer>
     </div>
