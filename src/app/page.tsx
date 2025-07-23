@@ -72,7 +72,7 @@ export default function Home() {
 
           {/* How to Play */}
           <section id="how-to-play" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">How to Play Google's Block Breaker</h2>
+            <h2 className="text-2xl font-bold mb-4">How to Play Google&#39;s Block Breaker</h2>
             <ul className="space-y-3">
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Move Your Paddle:</strong> Use your mouse, trackpad, or arrow keys to slide the paddle left and right to keep the ball in play.</li>
               <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Break All Blocks:</strong> Aim the ball to hit and destroy all blocks on the screen to advance to the next level.</li>
