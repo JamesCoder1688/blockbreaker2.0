@@ -1,0 +1,40 @@
+# Robots.txt for blockbreaker.vip
+# Allow all web crawlers to access the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://blockbreaker.vip/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+Crawl-delay: 1
+
+# Allow specific search engine bots with higher priority
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block access to internal directories that shouldn't be indexed
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Allow access to all game-related content
+Allow: /similar-games
+Allow: /from-breakout-to-block-breaker  
+Allow: /google-block-breaker
+Allow: /blog
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms

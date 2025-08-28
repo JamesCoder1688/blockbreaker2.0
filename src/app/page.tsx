@@ -1,171 +1,378 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import HeroSection from '@/components/sections/HeroSection';
+import ContentSection from '@/components/sections/ContentSection';
+import FAQSection from '@/components/sections/FAQSection';
+import FeatureCard from '@/components/ui/FeatureCard';
+import GameCard from '@/components/ui/GameCard';
+import CTAButton from '@/components/ui/CTAButton';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
+  // FAQ 数据
+  const faqData = [
+    {
+      question: "Is Block Breaker free?",
+      answer: "Yes! Block Breaker is completely free to play. No downloads, no registration, no hidden costs - just open your browser and start playing instantly."
+    },
+    {
+      question: "How do you play Block Breaker? (controls)",
+      answer: "Desktop: Use arrow keys (← →) or mouse to control the paddle. Mobile: Swipe left or right to move the paddle. Your goal is to keep the ball in play while destroying all blocks on the screen."
+    },
+    {
+      question: "Can I play on mobile?",
+      answer: "Absolutely! Block Breaker is fully optimized for mobile devices. The game works perfectly on smartphones and tablets with intuitive touch controls."
+    },
+    {
+      question: "Is 'Google Block Breaker' the same game?",
+      answer: "Google Block Breaker refers to the classic Easter egg version found in Google Search. Our Block Breaker offers the same addictive gameplay with enhanced graphics and additional features."
+    },
+    {
+      question: "How do I save my progress?",
+      answer: "Your progress is automatically saved in your browser's local storage. You can continue your game session from where you left off, even after closing the browser."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-400 to-purple-500">
+    <div className="min-h-screen game-bg particle-bg relative overflow-hidden">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur z-50 shadow flex items-center justify-between px-8 py-4">
-        <Link href="/" className="flex items-center font-bold text-xl text-gray-800">
-          <Image src="/favicon.ico" alt="Block Breaker Logo" width={32} height={32} className="w-8 h-8 mr-2" />
-          Block Breaker
-        </Link>
-        <ul className="flex gap-8 text-gray-700 font-medium">
-          <li><Link href="#features" className="hover:text-green-600">Features</Link></li>
-          <li><Link href="#how-to-play" className="hover:text-green-600">How to Play</Link></li>
-          <li><Link href="#tips-tricks" className="hover:text-green-600">Tips & Tricks</Link></li>
-          <li><Link href="#achievements" className="hover:text-green-600">Achievements</Link></li>
-        </ul>
-        <Link href="#game-container" className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">Play Now</Link>
+      <nav className="fixed top-0 left-0 right-0 bg-slate-900/95 backdrop-blur-lg z-50 border-b border-cyan-500/20 shadow-lg">
+        <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+          <Link href="/" className="flex items-center font-bold text-2xl text-cyan-400 hover:text-cyan-300 transition">
+            <div className="w-8 h-8 mr-3 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-lg flex items-center justify-center shadow-lg">
+              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            </div>
+            Block Breaker
+          </Link>
+          <ul className="hidden md:flex gap-6 text-gray-300 font-medium text-sm">
+            <li><a href="#what-is" className="hover:text-cyan-400 transition">What is Block Breaker</a></li>
+            <li><a href="#features" className="hover:text-cyan-400 transition">Features</a></li>
+            <li><a href="#tips" className="hover:text-cyan-400 transition">Tips</a></li>
+            <li><a href="#similar-games" className="hover:text-cyan-400 transition">Similar Games</a></li>
+            <li><a href="#faq" className="hover:text-cyan-400 transition">FAQ</a></li>
+            <li><Link href="/blog" className="hover:text-cyan-400 transition">Blog</Link></li>
+          </ul>
+        </div>
       </nav>
 
-      {/* Game Container */}
-      <div id="canvas-container" className="w-full h-screen pt-24" role="main" aria-label="Game container">
-        <iframe
-          id="game-container"
-          src="https://blockbreakergame.io/game/block-breaker/"
-          title="Play Block Breaker - Google's Classic Brick Breaking Game"
-          style={{ width: '100%', height: '100%', border: 'none', minHeight: '600px' }}
-          loading="eager"
-        ></iframe>
-      </div>
-
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-br from-indigo-400 to-purple-500 text-white text-center py-20">
-        <h1 className="text-5xl font-extrabold mb-4 drop-shadow">Google&apos;s Block Breaker</h1>
-        <p className="text-lg max-w-xl mx-auto mb-8 opacity-90">
-          The classic brick-breaking arcade game reimagined with stunning visuals, exciting power-ups, and addictive gameplay. Test your skills and reflexes now!
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a href="#game-container" className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-bold text-lg shadow">Play Now</a>
-          <a href="#features" className="bg-white/20 text-white px-8 py-3 rounded-full font-bold text-lg border border-white/30 hover:bg-white/30 transition">Learn More</a>
-        </div>
-      </section>
+      <HeroSection 
+        title="Block Breaker"
+        subtitle="– Play the Classic Block-Breaking Game Online"
+        description="Experience the ultimate brick-breaking adventure with stunning graphics, explosive power-ups, and addictive gameplay!"
+        showGameIframe={true}
+      />
 
       {/* Main Content */}
-      <main className="bg-white py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <h1 id="features" className="text-3xl font-bold text-center mb-8">Block Breaker - Brick Breaking Excellence</h1>
-          <p className="text-center text-gray-600 mb-8">
-            Welcome to <strong>Block Breaker</strong>, Google&apos;s reimagining of the classic brick-breaking arcade experience that&apos;s captivating players worldwide. Combining nostalgic gameplay with modern design and addictive challenges, Block Breaker delivers the perfect blend of simplicity and strategic depth that keeps you coming back for &quot;just one more level.&quot;
-          </p>
+      <main className="relative z-10 py-16">
+        <div className="max-w-6xl mx-auto px-4 space-y-16">
 
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gray-100 rounded-xl p-8 text-center shadow hover:scale-105 transition">
-              <div className="text-4xl text-green-500 mb-2"><i className="fas fa-puzzle-piece"></i></div>
-              <h3 className="font-bold text-lg mb-2">Addictive Gameplay</h3>
-              <p>The perfect balance of simple mechanics and challenging levels ensures hours of entertaining gameplay that never gets old.</p>
+          {/* 1. What is the Block Breaker */}
+          <ContentSection id="what-is" title="What is the Block Breaker">
+            <div className="text-lg leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+              <p className="mb-6">
+                Welcome to <strong className="text-cyan-400">Block Breaker</strong>, the modern evolution of the classic brick-breaking arcade experience that's captivating players worldwide. Many ask "What is the Block Breaker Game" - it's a timeless ball-bouncing brick destruction game that combines nostalgic gameplay with cutting-edge design and addictive challenges.
+              </p>
+              <p className="mb-6">
+                Block Breaker is a casual arcade game where you control a paddle to bounce a ball and systematically destroy blocks arranged on the screen. Moving your paddle horizontally, you keep the ball in play while directing it towards colorful brick formations to clear all blocks and advance through increasingly challenging levels.
+              </p>
+              <p className="text-base text-gray-400">
+                Also known as Breakout or Arkanoid, this gaming formula has entertained millions with physics-based gameplay, power-up systems, and progressively difficult level designs that test both reflexes and strategic thinking.
+              </p>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8 text-center shadow hover:scale-105 transition">
-              <div className="text-4xl text-green-500 mb-2"><i className="fas fa-bolt"></i></div>
-              <h3 className="font-bold text-lg mb-2">Exciting Power-ups</h3>
-              <p>Collect game-changing power-ups like multi-ball, paddle extenders, and ball accelerators to dominate the leaderboards.</p>
+          </ContentSection>
+
+          {/* 2. Features in a Block Breaker game */}
+          <ContentSection id="features" title="Features in a Block Breaker game">
+            <div className="mb-8">
+              {/* Core Gameplay Features */}
+              <h3 className="text-2xl font-bold text-purple-400 mb-6 text-center">Core Gameplay Features</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <FeatureCard 
+                  icon="🏓"
+                  title="Paddle Control"
+                  description="Precise horizontal movement controls the ball's trajectory. Master paddle positioning for strategic ball direction."
+                  color="purple"
+                />
+                <FeatureCard 
+                  icon="⚽"
+                  title="Ball Physics"
+                  description="Realistic physics determine bounce angles off paddle, blocks, and walls for strategic gameplay."
+                  color="cyan"
+                />
+                <FeatureCard 
+                  icon="🧱"
+                  title="Block Destruction"
+                  description="Multiple block types: Standard, Multi-hit, Unbreakable obstacles, and Mystery blocks with power-ups."
+                  color="pink"
+                />
+                <FeatureCard 
+                  icon="🎯"
+                  title="Scoring System"
+                  description="Points for each destroyed block, with bonus points for speed completion and combo hits."
+                  color="yellow"
+                />
+              </div>
+
+              {/* Progression & Variety */}
+              <h3 className="text-2xl font-bold text-green-400 mb-6 text-center">Progression & Variety</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <FeatureCard 
+                  icon="🎮"
+                  title="Level Design"
+                  description="Increasingly difficult levels with unique block patterns and creative arrangements."
+                  color="green"
+                />
+                <FeatureCard 
+                  icon="⚡"
+                  title="Power-ups"
+                  description="Paddle extension, multi-ball, laser shooting, and speed modifiers for enhanced gameplay."
+                  color="orange"
+                />
+                <FeatureCard 
+                  icon="🏆"
+                  title="Game Modes"
+                  description="Classic mode, challenge levels, and endless mode for varied gaming experiences."
+                  color="purple"
+                />
+              </div>
             </div>
-            <div className="bg-gray-100 rounded-xl p-8 text-center shadow hover:scale-105 transition">
-              <div className="text-4xl text-green-500 mb-2"><i className="fas fa-trophy"></i></div>
-              <h3 className="font-bold text-lg mb-2">Achievement System</h3>
-              <p>Unlock badges, trophies and special rewards as you progress through increasingly challenging levels.</p>
+          </ContentSection>
+
+          {/* 3. From Breakout to Block Breaker */}
+          <ContentSection id="breakout-evolution" title="From Breakout to Block Breaker">
+            <div className="text-lg leading-relaxed">
+              <p className="mb-6">
+                The journey from the original <strong className="text-cyan-400">Breakout</strong> (1976) to modern Block Breaker represents decades of gaming evolution. Atari's groundbreaking arcade game laid the foundation with simple paddle-and-ball mechanics that would influence countless titles.
+              </p>
+              <div className="grid md:grid-cols-2 gap-8 mb-6">
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-cyan-500/20">
+                  <h4 className="text-xl font-bold text-cyan-400 mb-3">Classic Era (1976-1980s)</h4>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Atari Breakout - The original arcade sensation</li>
+                    <li>• Simple graphics, addictive gameplay</li>
+                    <li>• Basic paddle control and ball physics</li>
+                  </ul>
+                </div>
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-purple-500/20">
+                  <h4 className="text-xl font-bold text-purple-400 mb-3">Modern Evolution (2000s+)</h4>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Enhanced graphics and visual effects</li>
+                    <li>• Power-ups and special abilities</li>
+                    <li>• Multiple game modes and challenges</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-center text-gray-400">
+                Today's Block Breaker maintains the core appeal while adding modern features that keep players engaged for hours.
+              </p>
             </div>
-          </div>
+          </ContentSection>
 
-          {/* How to Play */}
-          <section id="how-to-play" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">How to Play Google&#39;s Block Breaker</h2>
-            <ul className="space-y-3">
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Move Your Paddle:</strong> Use your mouse, trackpad, or arrow keys to slide the paddle left and right to keep the ball in play.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Break All Blocks:</strong> Aim the ball to hit and destroy all blocks on the screen to advance to the next level.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Catch Power-Ups:</strong> Special items will fall from broken blocks - catch them with your paddle to activate their effects!</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Don&apos;t Drop the Ball:</strong> If the ball falls below your paddle, you&apos;ll lose a life. Game over when all lives are lost.</li>
-            </ul>
+          {/* 4. Start Play Block Breaker Game Now! */}
+          <section id="play-cta" className="relative text-center">
+            <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-2xl p-12 border border-cyan-500/30">
+              <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mb-6">
+                Start Play Block Breaker Game Now!
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Ready for the ultimate brick-breaking experience? Jump into action with our optimized game that works perfectly on both desktop and mobile devices. No downloads required!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
+                <CTAButton href="#game" variant="primary" size="lg" pulse={true}>
+                  🎮 Play Block Breaker Now
+                </CTAButton>
+                <CTAButton href="#tips" variant="outline" size="lg">
+                  📚 Learn Winning Tips
+                </CTAButton>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💻</div>
+                  <p className="text-gray-400">Desktop Optimized</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">📱</div>
+                  <p className="text-gray-400">Mobile Ready</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">⚡</div>
+                  <p className="text-gray-400">Instant Loading</p>
+                </div>
+              </div>
+            </div>
           </section>
 
-          {/* Tips & Tricks */}
-          <section id="tips-tricks" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">Tips &amp; Tricks for Block Breaker Mastery</h2>
-            <ol className="list-decimal ml-6 space-y-2">
-              <li><strong>Aim for the Corners:</strong> Hitting blocks at their edges can create unpredictable ball trajectories that clear multiple blocks at once.</li>
-              <li><strong>Prioritize Power-Ups:</strong> Some power-ups are more valuable than others - multi-ball and paddle extenders can be game-changers.</li>
-              <li><strong>Watch for Special Blocks:</strong> Explosive blocks can clear large areas, while reinforced blocks should be targeted early to wear them down.</li>
-              <li><strong>Create Pathways:</strong> Strategically clear blocks to create paths to hard-to-reach areas instead of random hitting.</li>
-              <li><strong>Master Ball Control:</strong> Learn to predict ball trajectories and position your paddle to direct the ball where you want it to go.</li>
-            </ol>
-          </section>
+          {/* 5. How google block breaker */}
+          <ContentSection id="google-block-breaker" title="How google block breaker">
+            <div className="text-lg leading-relaxed">
+              <p className="mb-6">
+                When users search for "google block breaker," they're typically looking for the classic Easter egg version that Google featured in their search results. This hidden game became a beloved tribute to the original Atari Breakout, accessible through specific search terms.
+              </p>
+              <div className="bg-slate-700/30 rounded-xl p-6 border border-cyan-500/20 mb-6">
+                <h4 className="text-xl font-bold text-cyan-400 mb-3">Google's Block Breaker Features:</h4>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Classic pixel art graphics reminiscent of retro gaming</li>
+                  <li>• Simple controls using arrow keys or mouse</li>
+                  <li>• Google's signature colors in the block arrangement</li>
+                  <li>• Easter egg accessibility through search interface</li>
+                </ul>
+              </div>
+              <p className="mb-6">
+                While Google's version offers nostalgic charm, our enhanced Block Breaker delivers the same classic gameplay with improved graphics, additional power-ups, and optimized performance across all devices.
+              </p>
+              <div className="text-center bg-cyan-500/10 rounded-xl p-6 border border-cyan-500/30">
+                <p className="text-cyan-400 font-semibold">
+                  Experience the best of both worlds - classic gameplay with modern enhancements!
+                </p>
+              </div>
+            </div>
+          </ContentSection>
 
-          {/* Achievements */}
-          <section id="achievements" className="mb-16">
-            <h2 className="text-2xl font-bold mb-4">Achievements &amp; Challenges</h2>
-            <ul className="space-y-3">
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Perfect Clearer:</strong> Complete a level without losing a single ball.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Speed Demon:</strong> Clear a level in under 30 seconds.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Combo Master:</strong> Break 10 blocks in a single ball trajectory.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Power-Up Collector:</strong> Activate all types of power-ups in a single game.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Marathon Player:</strong> Reach level 50 without continuing.</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Leaderboard Legend:</strong> Maintain a top 100 position on the global leaderboards for a week.</li>
-            </ul>
-          </section>
+          {/* 6. Tips to Win in Block Breaker */}
+          <ContentSection id="tips" title="Tips to Win in Block Breaker">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-green-500/20">
+                  <h4 className="font-bold text-green-400 mb-3">🎯 Master Ball Control</h4>
+                  <p className="text-gray-300">Position your paddle strategically to control ball direction. Hit the ball with different parts of the paddle to change angles and target specific blocks.</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-purple-500/20">
+                  <h4 className="font-bold text-purple-400 mb-3">⚡ Prioritize Power-ups</h4>
+                  <p className="text-gray-300">Always aim for blocks that release power-ups. Multi-ball and paddle extension power-ups can dramatically improve your chances of success.</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-cyan-500/20">
+                  <h4 className="font-bold text-cyan-400 mb-3">🏗️ Strategic Block Removal</h4>
+                  <p className="text-gray-300">Target side blocks first to create angles for reaching hard-to-hit areas. Clear paths systematically rather than random destruction.</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-orange-500/20">
+                  <h4 className="font-bold text-orange-400 mb-3">🎮 Stay Focused</h4>
+                  <p className="text-gray-300">Keep your eyes on the ball's trajectory and anticipate where it will bounce. Quick reflexes combined with prediction win games.</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-pink-500/20">
+                  <h4 className="font-bold text-pink-400 mb-3">🚀 Use Wall Bounces</h4>
+                  <p className="text-gray-300">Utilize side walls to reach difficult blocks. Angle shots off walls to access blocks that seem impossible to hit directly.</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-xl p-6 border border-yellow-500/20">
+                  <h4 className="font-bold text-yellow-400 mb-3">💪 Practice Patience</h4>
+                  <p className="text-gray-300">Don't rush shots. Sometimes waiting for the right angle is better than making hasty moves that could cost you the ball.</p>
+                </div>
+              </div>
+            </div>
+          </ContentSection>
 
-          {/* Game Controls */}
-          <section id="game-controls">
-            <h2 className="text-2xl font-bold mb-4">Game Controls</h2>
-            <ul className="space-y-3">
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Mouse Movement:</strong> Move your mouse left and right to control the paddle position</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Left/Right Arrow Keys:</strong> Alternative paddle movement controls</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>Spacebar:</strong> Launch the ball from the paddle / Pause game</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>P Key:</strong> Alternative pause button</li>
-              <li className="bg-gray-50 p-4 rounded border-l-4 border-green-500"><strong>M Key:</strong> Mute/unmute game sounds</li>
-            </ul>
-          </section>
+          {/* 7. Why Play Block Breaker on blockbreaker.vip? */}
+          <ContentSection id="why-play" title="Why Play Block Breaker on blockbreaker.vip?" showCTA={false}>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">🆓</div>
+                  <div>
+                    <h4 className="font-bold text-cyan-400 mb-2">Completely Free</h4>
+                    <p className="text-gray-300">No hidden costs, no premium versions, no paywalls. Enjoy unlimited gameplay without spending a penny.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">📱</div>
+                  <div>
+                    <h4 className="font-bold text-purple-400 mb-2">Mobile Optimized</h4>
+                    <p className="text-gray-300">Perfect touch controls and responsive design ensure smooth gameplay on all smartphones and tablets.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-green-400 mb-2">Lightning Fast</h4>
+                    <p className="text-gray-300">Optimized loading times and smooth 60fps gameplay for the ultimate gaming experience.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">🚫</div>
+                  <div>
+                    <h4 className="font-bold text-orange-400 mb-2">No Ads Interruption</h4>
+                    <p className="text-gray-300">Uninterrupted gameplay without annoying pop-ups or video ads breaking your concentration.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">💾</div>
+                  <div>
+                    <h4 className="font-bold text-pink-400 mb-2">Progress Saved</h4>
+                    <p className="text-gray-300">Your game progress is automatically saved locally, so you can continue where you left off anytime.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="text-2xl">🎯</div>
+                  <div>
+                    <h4 className="font-bold text-yellow-400 mb-2">Enhanced Features</h4>
+                    <p className="text-gray-300">Modern graphics, particle effects, and improved power-ups beyond the classic version.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="text-center">
+              <CTAButton href="#game" variant="primary" size="lg" pulse={true}>
+                🎮 Experience the Difference - Play Now
+              </CTAButton>
+            </div>
+          </ContentSection>
+
+          {/* 8. Similar Games in the Block-Breaking Genre */}
+          <ContentSection id="similar-games" title="Similar Games in the Block-Breaking Genre" showCTA={false}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <GameCard 
+                title="Arkanoid"
+                description="The legendary arcade classic that defined the block-breaking genre with power-ups and enemy characters."
+                ctaText="Or Play Block Breaker"
+              />
+              <GameCard 
+                title="Brick Breaker"
+                description="A modern take on the classic formula with enhanced graphics and multiple game modes."
+                ctaText="Or Play Block Breaker"
+              />
+              <GameCard 
+                title="Super Breakout"
+                description="Atari's enhanced version featuring multiple balls and progressive difficulty levels."
+                ctaText="Or Play Block Breaker"
+              />
+              <GameCard 
+                title="DX-Ball"
+                description="Popular PC version with fantastic power-ups and creative level designs from the 90s era."
+                ctaText="Or Play Block Breaker"
+              />
+              <GameCard 
+                title="Ricochet"
+                description="3D block-breaking game with stunning visual effects and innovative gameplay mechanics."
+                ctaText="Or Play Block Breaker"
+              />
+              <GameCard 
+                title="Peggle"
+                description="Physics-based puzzle game combining block-breaking with pinball-style gameplay."
+                ctaText="Or Play Block Breaker"
+              />
+            </div>
+            <div className="text-center">
+              <p className="text-gray-400 mb-6">
+                While these games offer their own unique twists, Block Breaker delivers the pure, classic experience you love with modern enhancements.
+              </p>
+              <CTAButton href="#game" variant="primary" size="lg">
+                🎯 Play the Ultimate Block Breaker
+              </CTAButton>
+            </div>
+          </ContentSection>
+
+          {/* FAQ Section */}
+          <FAQSection faqs={faqData} />
+
         </div>
       </main>
 
-      {/* CTA Section */}
-      <section className="cta-section bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-16">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Ready to Break Some Blocks?</h2>
-          <p className="mb-6">Join millions of players worldwide enjoying Google&apos;s Block Breaker. Challenge yourself, beat your high score, and experience the satisfaction of clearing level after level.</p>
-          <Link href="#game-container" className="bg-white text-green-600 px-8 py-3 rounded-full font-bold text-lg shadow hover:bg-gray-100 transition">Play Free Now</Link>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 mb-8 px-4">
-          <div>
-            <h3 className="text-green-400 font-bold text-lg mb-2">Block Breaker</h3>
-            <p className="opacity-80 mb-4">The ultimate brick-breaking arcade experience reimagined by Google. Free to play, impossible to master!</p>
-            <div className="flex gap-4">
-              <a href="#" aria-label="Facebook" className="bg-green-500 w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 transition"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Twitter" className="bg-green-500 w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 transition"><i className="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram" className="bg-green-500 w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 transition"><i className="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Discord" className="bg-green-500 w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 transition"><i className="fab fa-discord"></i></a>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-green-400 font-bold text-lg mb-2">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link href="#features" className="hover:text-green-400">Features</Link></li>
-              <li><Link href="#how-to-play" className="hover:text-green-400">How to Play</Link></li>
-              <li><Link href="#tips-tricks" className="hover:text-green-400">Tips & Tricks</Link></li>
-              <li><Link href="#achievements" className="hover:text-green-400">Achievements</Link></li>
-              <li><Link href="#game-container" className="hover:text-green-400">Play Now</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-green-400 font-bold text-lg mb-2">Support</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-green-400">FAQs</a></li>
-              <li><a href="#" className="hover:text-green-400">Contact Us</a></li>
-              <li><a href="#" className="hover:text-green-400">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-green-400">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center opacity-60 border-t border-gray-700 pt-6">
-          &copy; 2025 Block Breaker. All rights reserved. An unofficial fan site for Google&apos;s Block Breaker game.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
