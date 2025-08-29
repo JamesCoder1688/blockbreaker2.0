@@ -12,6 +12,22 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    id: 'accessibility-in-gaming',
+    title: 'Making Block Breaker Accessible: Gaming for Everyone',
+    excerpt: 'Explore how modern Block Breaker games incorporate accessibility features to ensure inclusive gaming experiences.',
+    date: '2024-12-20',
+    category: 'Accessibility',
+    readTime: '6 min read'
+  },
+  {
+    id: 'competitive-block-breaker',
+    title: 'The Rise of Competitive Block Breaker: From Casual to Esports',
+    excerpt: 'Discover how Block Breaker evolved from casual entertainment to competitive gaming with tournaments and professional players.',
+    date: '2024-12-18',
+    category: 'Esports',
+    readTime: '7 min read'
+  },
+  {
     id: 'mastering-block-breaker',
     title: 'Mastering Block Breaker: Advanced Strategies and Tips',
     excerpt: 'Discover expert techniques to boost your scores and clear levels faster in Block Breaker.',
