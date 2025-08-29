@@ -12,6 +12,30 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    id: 'block-breaker-psychology',
+    title: 'The Psychology of Block Breaker: Why We Love Breaking Things',
+    excerpt: 'Explore the psychological mechanisms that make Block Breaker so addictive and satisfying to play.',
+    date: '2024-12-25',
+    category: 'Psychology',
+    readTime: '8 min read'
+  },
+  {
+    id: 'power-ups-guide',
+    title: 'Master Every Power-Up: Complete Block Breaker Enhancement Guide',
+    excerpt: 'Comprehensive guide to all Block Breaker power-ups, their effects, and optimal usage strategies.',
+    date: '2024-12-23',
+    category: 'Strategy',
+    readTime: '9 min read'
+  },
+  {
+    id: 'block-breaker-variants',
+    title: 'Beyond Classic: Exploring Modern Block Breaker Game Variations',
+    excerpt: 'Discover innovative variations and modern twists on the classic Block Breaker formula.',
+    date: '2024-12-22',
+    category: 'Gaming',
+    readTime: '7 min read'
+  },
+  {
     id: 'accessibility-in-gaming',
     title: 'Making Block Breaker Accessible: Gaming for Everyone',
     excerpt: 'Explore how modern Block Breaker games incorporate accessibility features to ensure inclusive gaming experiences.',
